@@ -33,7 +33,7 @@ public class Main {
                 + soldierVeteran.getArmyInfo());
 
         System.out.println("\n The Army also has Civilians. Let's create one");
-        CivilianEmployee civilian = new CivilianEmployee("Donald Bojden", 30);
+        CivilianEmployee civilian = new CivilianEmployee("Donald Bojdin", 30);
         civilian.setGeneralScheduleGrade(GeneralScheduleGrade.GS8);
         civilian.setPosition("Biomechanical Engineer");
         civilian.setAddress("Main str", "Maine", "US");
