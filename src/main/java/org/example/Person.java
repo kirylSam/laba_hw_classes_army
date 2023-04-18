@@ -1,30 +1,40 @@
 package org.example;
 
 public abstract class Person {
-    private String nameSurname;
-    private int age;
+    private String name;
+    private String surname;
+    private String DOB;
     private Address address;
 
-    public Person(String nameSurname, int age) {
-        this.nameSurname = nameSurname;
-        this.age = age;
+    public Person(String name, String surname, String DOB) {
+        this.name = name;
+        this.surname = surname;
+        this.DOB = DOB;
         address = new Address();
     }
 
-    public String getNameSurname() {
-        return nameSurname;
+    public String getName() {
+        return "\n Name: " + this.name;
     }
 
-    public void setNameSurname(String nameSurname) {
-        this.nameSurname = nameSurname;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public String getSurname() {
+        return "\n Surname: " + this.surname;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getDOB() {
+        return "\n DOB: " + this.DOB;
+    }
+
+    public void setDOB(String DOB) {
+        this.DOB = DOB;
     }
 
     public String getAddress() {

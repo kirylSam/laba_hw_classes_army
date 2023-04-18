@@ -1,13 +1,15 @@
 package org.example;
 
+import org.example.enums.GeneralScheduleGrades;
+
 public class CivilianEmployee extends Person{
-    private GeneralScheduleGrade generalScheduleGrade;
+    private GeneralScheduleGrades generalScheduleGrade;
     private int salary;
     private String position;
 
-    public CivilianEmployee(String nameSurname, int age) {
-        super(nameSurname, age);
-        this.generalScheduleGrade = GeneralScheduleGrade.UNDEFINED;
+    public CivilianEmployee(String name, String surname, String DOB) {
+        super(name, surname, DOB);
+        this.generalScheduleGrade = GeneralScheduleGrades.UNDEFINED;
         this.salary = 0;
         this.position = "UNDEFINED";
     }
@@ -16,8 +18,8 @@ public class CivilianEmployee extends Person{
         return "\n General Schedule Civilian Grade: " + this.generalScheduleGrade.toString();
     }
 
-    public void setGeneralScheduleGrade(GeneralScheduleGrade generalScheduleGrade) {
-        this.generalScheduleGrade = generalScheduleGrade;
+    public void setGeneralScheduleGrade(GeneralScheduleGrades generalScheduleGrades) {
+        this.generalScheduleGrade = generalScheduleGrades;
     }
 
     public String getSalary() {

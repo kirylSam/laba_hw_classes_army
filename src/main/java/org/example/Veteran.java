@@ -1,22 +1,31 @@
 package org.example;
 
-public class Veteran extends Army{
-    private Rank rank;
+import org.example.enums.VeteranRanks;
 
-    public Veteran(String nameSurname, int age) {
-        super(nameSurname, age);
+public class Veteran extends Soldier {
+    private VeteranRanks veteranRank;
+    private int pension;
+
+    public Veteran(String name, String surname, String DOB) {
+        super(name, surname, DOB);
+        this.veteranRank = VeteranRanks.UNDEFINED;
+        this.pension = 0;
     }
 
-    public String getRank() {
-        return "\n Off Duty. Rank: " + this.rank.toString();
+    public String getVeteranRank() {
+        return "\n Off Duty. Rank: " + this.veteranRank.toString();
     }
 
-    public void setRank(Rank rank) {
-        this.rank = rank;
+    public void setVeteranRank(VeteranRanks veteranRank) {
+        this.veteranRank = veteranRank;
     }
 
-    @Override
-    public String getArmyInfo() {
-        return "\n No longer on duty. Veteran";
+    public String getPension() {
+        return "\n Pension: " + this.pension;
     }
+
+    public void setPension(int pension) {
+        this.pension = pension;
+    }
+
 }

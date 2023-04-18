@@ -1,28 +1,38 @@
 package org.example;
 
-public class Soldier extends Army{
-    private Regiment regiment;
-    private Rank rank;
+import org.example.enums.ArmyComponents;
+import org.example.enums.ArmyRegiments;
+import org.example.enums.CombatantCommands;
+import org.example.enums.CommandHQs;
 
-    public Soldier(String nameSurname, int age) {
-        super(nameSurname, age);
-        this.regiment = Regiment.UNDEFINED;
-        this.rank = Rank.UNDEFINED;
+public class Soldier extends Person{
+    private CombatantCommand combatantCommand;
+    private ArmyComponents armyComponent;
+    private ArmyRegiments armyRegiment;
+
+    public Soldier(String name, String surname, String DOB) {
+        super(name, surname, DOB);
+        combatantCommand = new CombatantCommand();
+        this.armyComponent = ArmyComponents.UNDEFINED;
+        this.armyRegiment = ArmyRegiments.UNDEFINED;
     }
-
+    public String getCombatantCommand() {
+        return this.combatantCommand.getCombatantCommand() + this.combatantCommand.getCommandHQ();
+    }
+    public void setCombatantCommand(CombatantCommands combatantCommand, CommandHQs commandHQ) {
+        this.combatantCommand.setCombatantCommand(combatantCommand);
+        this.combatantCommand.setCommandHQ(commandHQ);
+    }
+    public String getArmyComponent() {
+        return "\n ArmyComponent: " + this.armyComponent.toString();
+    }
+    public void setArmyComponent(ArmyComponents armyComponents) {
+        this.armyComponent = armyComponents;
+    }
     public String getRegiment() {
-        return "\n Regiment: " + this.regiment.toString();
+        return "\n Regiment: " + this.armyRegiment.toString();
     }
-
-    public void setRegiment(Regiment regiment) {
-        this.regiment = regiment;
-    }
-
-    public String getRank() {
-        return "\n Rank: " + this.rank.toString();
-    }
-
-    public void setRank(Rank rank) {
-        this.rank = rank;
+    public void setRegiment(ArmyRegiments armyRegiments) {
+        this.armyRegiment = armyRegiments;
     }
 }

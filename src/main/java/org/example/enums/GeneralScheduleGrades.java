@@ -1,6 +1,6 @@
-package org.example;
+package org.example.enums;
 
-public enum GeneralScheduleGrade {
+public enum GeneralScheduleGrades {
     UNDEFINED,
     GS3,
     GS4,

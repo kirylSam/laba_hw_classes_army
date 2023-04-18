@@ -1,6 +1,6 @@
-package org.example;
+package org.example.enums;
 
-public enum CommandHQ {
+public enum CommandHQs {
     UNDEFINED,
     ShawAirForceBase,
     ForSamHouston,

@@ -1,20 +1,23 @@
 package org.example;
 
+import org.example.enums.CombatantCommands;
+import org.example.enums.CommandHQs;
+
 public class ArmyCommand {
-    private GeographicalCommand geographicalCommand;
-    private CommandHQ commandHQ;
+    private CombatantCommands combatantCommands;
+    private CommandHQs commandHQs;
 
     public ArmyCommand() {
-        this.geographicalCommand = GeographicalCommand.UNDEFINED;
-        this.commandHQ = CommandHQ.UNDEFINED;
+        this.combatantCommands = CombatantCommands.UNDEFINED;
+        this.commandHQs = CommandHQs.UNDEFINED;
     }
 
     public String getArmyCommandInfo() {
-        return "\n GeoCommand: " + this.geographicalCommand.toString() + " CommandHQ: " + this.commandHQ.toString();
+        return "\n GeoCommand: " + this.combatantCommands.toString() + " CommandHQ: " + this.commandHQs.toString();
     }
 
-    public void setArmyCommandInfo(GeographicalCommand geographicalCommand, CommandHQ commandHQ) {
-        this.geographicalCommand = geographicalCommand;
-        this.commandHQ = commandHQ;
+    public void setArmyCommandInfo(CombatantCommands combatantCommands, CommandHQs commandHQs) {
+        this.combatantCommands = combatantCommands;
+        this.commandHQs = commandHQs;
     }
 }

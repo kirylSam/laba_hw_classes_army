@@ -1,6 +1,6 @@
-package org.example;
+package org.example.enums;
 
-public enum Regiment {
+public enum ArmyRegiments {
     UNDEFINED,
     FirstInfantryRegiment,
     FifthInfantryRegiment,

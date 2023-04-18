@@ -1,6 +1,6 @@
-package org.example;
+package org.example.enums;
 
-public enum ArmyComponent {
+public enum ArmyComponents {
     UNDEFINED,
     RegularArmy,
     ArmyNationalGuard,

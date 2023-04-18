@@ -1,6 +1,6 @@
-package org.example;
+package org.example.enums;
 
-public enum Rank {
+public enum VeteranRanks {
     UNDEFINED,
     Private,
     Specialist,
