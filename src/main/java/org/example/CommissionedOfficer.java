@@ -40,4 +40,9 @@ public class CommissionedOfficer extends Soldier {
     public void setMilitaryDegree(String militaryDegree) {
         this.militaryDegree = militaryDegree;
     }
+
+    @Override
+    public String toString() {
+        return "Object of Commissioned Officer class: " + this.getName() + this.getSurname();
+    }
 }

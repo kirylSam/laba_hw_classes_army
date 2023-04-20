@@ -44,4 +44,24 @@ public abstract class Person {
     public void setAddress(String street, String city, String country) {
         this.address.setAddress(street, city, country);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        //if the object is null or is not of this class - return false;
+        if (o == null || this.getClass() != o.getClass()) {
+            return false;
+        }
+        //if the object is not an instance of Person class
+        if(!(o instanceof Person)) {
+            return false;
+        }
+        //if the object is compared with itself - return true
+        if (o == this) {
+            return true;
+        }
+
+        //No we can compare the data members
+        Person other = (Person) o;
+        return DOB.equals(other.DOB) && surname.equals(other.surname) && name.equals(other.name);
+    }
 }

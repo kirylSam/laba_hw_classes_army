@@ -13,11 +13,27 @@ public class ArmyCommand {
     }
 
     public String getArmyCommandInfo() {
-        return "\n GeoCommand: " + this.combatantCommands.toString() + " CommandHQ: " + this.commandHQs.toString();
+        return "\n Combatant Command: " + this.combatantCommands.toString() + " Command HQ: " + this.commandHQs.toString();
     }
 
     public void setArmyCommandInfo(CombatantCommands combatantCommands, CommandHQs commandHQs) {
         this.combatantCommands = combatantCommands;
+        this.commandHQs = commandHQs;
+    }
+
+    public String getCombatantCommands() {
+        return "\n Combatant Command " + this.combatantCommands.toString();
+    }
+
+    public void setCombatantCommands(CombatantCommands combatantCommands) {
+        this.combatantCommands = combatantCommands;
+    }
+
+    public String getCommandHQs() {
+        return "\n Command HQ: " + this.commandHQs.toString();
+    }
+
+    public void setCommandHQs(CommandHQs commandHQs) {
         this.commandHQs = commandHQs;
     }
 }

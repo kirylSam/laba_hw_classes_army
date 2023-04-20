@@ -37,4 +37,9 @@ public class CivilianEmployee extends Person{
     public void setPosition(String position) {
         this.position = position;
     }
+
+    @Override
+    public String toString() {
+        return "Object of Civilian class: " + this.getName() + this.getSurname();
+    }
 }

@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.enums.*;
+import org.example.mergeSort.MergeSort;
 
 public class Main {
     public static void main(String[] args) {
@@ -96,6 +97,13 @@ public class Main {
         System.out.println(marineReserve.getName() + marineReserve.getSurname() + marineReserve.getDOB()
                 + marineReserve.getAddress() + marineReserve.getMarineReserveRank()
                 + marineReserve.getFleet() + marineReserve.getPension());
+
+        System.out.println("Using equals:");
+        System.out.println(marineReserve.equals(marineReserve));
+        System.out.println(marineCorps.equals(marineReserve));
+        MarineReserve marineReserve1 = marineReserve;
+        System.out.println(marineReserve1.equals(marineReserve));
+
+        //MergeSort.mergeSortExample();
     }
-    
 }

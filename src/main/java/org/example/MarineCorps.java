@@ -3,7 +3,6 @@ package org.example;
 import org.example.enums.NavyRanks;
 
 public class MarineCorps extends Marine {
-
     private NavyRanks navyRank;
     private int salary;
 
@@ -27,5 +26,10 @@ public class MarineCorps extends Marine {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Object of Marine Corps class: " + this.getName() + this.getSurname();
     }
 }

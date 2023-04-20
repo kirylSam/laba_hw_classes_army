@@ -11,7 +11,6 @@ public class MarineReserve extends Marine {
         this.navyRank = NavyRanks.UNDEFINED;
         this.pension = 0;
     }
-
     public String getMarineReserveRank() {
         return "\n Off Duty. Rank: " + this.navyRank.toString();
     }
@@ -28,4 +27,8 @@ public class MarineReserve extends Marine {
         this.pension = pension;
     }
 
+    @Override
+    public String toString() {
+        return "Object of Marine Reserve class: " + this.getName() + this.getSurname();
+    }
 }

@@ -28,4 +28,8 @@ public class Veteran extends Soldier {
         this.pension = pension;
     }
 
+    @Override
+    public String toString() {
+        return "Object of Veteran class: " + this.getName() + this.getSurname();
+    }
 }

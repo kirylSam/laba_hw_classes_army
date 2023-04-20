@@ -3,7 +3,6 @@ package org.example;
 import org.example.enums.NonCommissionedRanks;
 
 public class NonCommissionedOfficer extends Soldier {
-
     private NonCommissionedRanks nonCommissionedRank;
     private int salary;
 
@@ -27,6 +26,11 @@ public class NonCommissionedOfficer extends Soldier {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Object of NonCommissioned Officer class: " + this.getName() + this.getSurname();
     }
 
 }
