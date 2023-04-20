@@ -1,11 +1,22 @@
 package org.example.enums;
 
 public enum CombatantCommands {
-    UNDEFINED,
-    USArmyCentral,
-    USArmyNorth,
-    USArmySouth,
-    USArmyEurope,
-    USArmyAfrica,
-    USArmyCyberCommand
+    UNDEFINED("UNDEFINED"),
+    US_ARMY_CENTRAL("US Army Central"),
+    US_ARMY_NORTH("US Army North"),
+    US_ARMY_SOUTH("US Army South"),
+    US_ARMY_EUROPE("US Army Europe"),
+    US_ARMY_AFRICA("US Army Africa"),
+    US_ARMY_CYBERCOMMAND("US Army Cyber Command");
+
+    private String prettyName;
+
+    CombatantCommands(String prettyName) {
+        this.prettyName = prettyName;
+    }
+
+    @Override
+    public String toString() {
+        return prettyName;
+    }
 }

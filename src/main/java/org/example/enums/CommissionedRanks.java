@@ -1,14 +1,16 @@
 package org.example.enums;
 
-public enum ArmyComponents {
+public enum CommissionedRanks {
     UNDEFINED("UNDEFINED"),
-    REGULAR_ARMY("Regular Army"),
-    ARMY_NATIONAL_GUARD("National Guard"),
-    ARMY_RESERVE("National Reserve");
+    GENERAL("General"),
+    BRIGADIER("Brigadier"),
+    COLONEL("Colonel"),
+    MAJOR("Major"),
+    CAPTAIN("Captain");
 
     private String prettyName;
 
-    ArmyComponents(String prettyName) {
+    CommissionedRanks(String prettyName) {
         this.prettyName = prettyName;
     }
 
