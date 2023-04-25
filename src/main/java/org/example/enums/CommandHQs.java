@@ -8,10 +8,14 @@ public enum CommandHQs {
     VINCENZA("Vincenza, Italy"),
     HAWAII("Hawaii");
 
-    private String prettyName;
+    private final String prettyName;
 
     CommandHQs(String prettyName) {
         this.prettyName = prettyName;
+    }
+
+    public String getCommandHQ() {
+        return prettyName;
     }
 
     @Override

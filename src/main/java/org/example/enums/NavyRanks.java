@@ -12,10 +12,14 @@ public enum NavyRanks {
     ADMIRAL("Admiral"),
     FLEET_ADMIRAL("Fleet Admiral");
 
-    private String prettyName;
+    private final String prettyName;
 
     NavyRanks(String prettyName) {
         this.prettyName = prettyName;
+    }
+
+    public String getNavyRank() {
+        return prettyName;
     }
 
     @Override

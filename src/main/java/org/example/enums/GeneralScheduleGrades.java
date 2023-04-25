@@ -12,10 +12,14 @@ public enum GeneralScheduleGrades {
     GS14("GS14"),
     GS15("GS15");
 
-    private String prettyName;
+    private final String prettyName;
 
     GeneralScheduleGrades(String prettyName) {
         this.prettyName = prettyName;
+    }
+
+    public String getGeneralScheduleGrade() {
+        return prettyName;
     }
 
     @Override

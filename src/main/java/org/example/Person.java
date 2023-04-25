@@ -6,11 +6,14 @@ public abstract class Person {
     private String DOB;
     private Address address;
 
+    private static int numberOfPeople;
+
     public Person(String name, String surname, String DOB) {
         this.name = name;
         this.surname = surname;
         this.DOB = DOB;
         address = new Address();
+        numberOfPeople++;
     }
 
     public String getName() {
@@ -43,6 +46,14 @@ public abstract class Person {
 
     public void setAddress(String street, String city, String country) {
         this.address.setAddress(street, city, country);
+    }
+
+    public static String getNumberOfPeople() {
+        return "\n Total Number of People created: " + numberOfPeople;
+    }
+
+    public static void setNumberOfPeople(int modifiedNumberOfPeople) {
+        numberOfPeople = modifiedNumberOfPeople;
     }
 
     @Override

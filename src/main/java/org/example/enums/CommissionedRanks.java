@@ -8,10 +8,14 @@ public enum CommissionedRanks {
     MAJOR("Major"),
     CAPTAIN("Captain");
 
-    private String prettyName;
+    private final String prettyName;
 
     CommissionedRanks(String prettyName) {
         this.prettyName = prettyName;
+    }
+
+    public String getCommissionedRank() {
+        return prettyName;
     }
 
     @Override

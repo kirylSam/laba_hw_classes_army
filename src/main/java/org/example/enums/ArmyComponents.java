@@ -6,10 +6,14 @@ public enum ArmyComponents {
     ARMY_NATIONAL_GUARD("National Guard"),
     ARMY_RESERVE("National Reserve");
 
-    private String prettyName;
+    private final String prettyName;
 
     ArmyComponents(String prettyName) {
         this.prettyName = prettyName;
+    }
+
+    public String getArmyComponent() {
+        return prettyName;
     }
 
     @Override

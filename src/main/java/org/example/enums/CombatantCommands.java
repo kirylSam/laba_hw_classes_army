@@ -9,10 +9,14 @@ public enum CombatantCommands {
     US_ARMY_AFRICA("US Army Africa"),
     US_ARMY_CYBERCOMMAND("US Army Cyber Command");
 
-    private String prettyName;
+    private final String prettyName;
 
     CombatantCommands(String prettyName) {
         this.prettyName = prettyName;
+    }
+
+    public String getCombatantCommand() {
+        return prettyName;
     }
 
     @Override

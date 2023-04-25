@@ -4,13 +4,22 @@ import org.example.enums.*;
 import org.example.mergeSort.MergeSort;
 
 public class Main {
+
+    //23.04 moved salary to the Soldier/Marine class + added IPensioner to the Veteran and MarineReservist
+    //Added IArmedM4A1 and IArmedM27 to differentiate weaponry
+    //Added IArmyUniform and IMarinesUniform
+    //Added static method/variable - counter, to count total amount of People created (+ static getter/setter)
+    //Fixed enums by adding getter and final modifier
+    //Added static list of mosCoded to Soldier + static getters/setter, and a this.occupationalCode for each soldier
+
     public static void main(String[] args) {
         System.out.println("Let's create a veteran!");
         Veteran newVeteran = new Veteran("Alex", "Johns", "31/02/1990");
         System.out.println(newVeteran.getName() + newVeteran.getSurname() + newVeteran.getDOB()
                 + newVeteran.getAddress() + newVeteran.getVeteranRank()
                 + newVeteran.getCombatantCommand() + newVeteran.getArmyComponent()
-                + newVeteran.getRegiment() + newVeteran.getPension());
+                + newVeteran.getRegiment() + newVeteran.getPension()
+                + newVeteran.getMilitaryOccupationalCode());
 
         System.out.println("Let's add data to this veteran!");
         newVeteran.setAddress("Downing", "Maine", "US");
@@ -19,10 +28,12 @@ public class Main {
         newVeteran.setArmyComponent(ArmyComponents.ARMY_RESERVE);
         newVeteran.setRegiment(ArmyRegiments.RANGER_REGIMENT);
         newVeteran.setPension(100000);
+        newVeteran.setMilitaryOccupationalCode(4);
         System.out.println(newVeteran.getName() + newVeteran.getSurname() + newVeteran.getDOB()
                 + newVeteran.getAddress() + newVeteran.getVeteranRank()
                 + newVeteran.getCombatantCommand() + newVeteran.getArmyComponent()
-                + newVeteran.getRegiment() + newVeteran.getPension());
+                + newVeteran.getRegiment() + newVeteran.getPension()
+                + newVeteran.getMilitaryOccupationalCode());
 
         System.out.println("Let's create a commissioned officer!");
         CommissionedOfficer commissionedOfficer = new CommissionedOfficer("Karen", "Fillippeli", "31/01/2022");
@@ -30,7 +41,7 @@ public class Main {
                 + commissionedOfficer.getAddress() + commissionedOfficer.getCommissionedRank()
                 + commissionedOfficer.getCombatantCommand() + commissionedOfficer.getArmyComponent()
                 + commissionedOfficer.getRegiment() + commissionedOfficer.getSalary()
-                + commissionedOfficer.getMilitaryDegree());
+                + commissionedOfficer.getMilitaryDegree() + commissionedOfficer.getMilitaryOccupationalCode());
 
         System.out.println("Let's add data to this commissioned officer!");
         commissionedOfficer.setAddress("32nd angels", "Portland", "US");
@@ -40,11 +51,13 @@ public class Main {
         commissionedOfficer.setRegiment(ArmyRegiments.CAVALRY_REGIMENT);
         commissionedOfficer.setSalary(140000);
         commissionedOfficer.setMilitaryDegree("Marines College");
+        commissionedOfficer.setMilitaryOccupationalCode(6);
         System.out.println(commissionedOfficer.getName() + commissionedOfficer.getSurname() + commissionedOfficer.getDOB()
                 + commissionedOfficer.getAddress() + commissionedOfficer.getCommissionedRank()
                 + commissionedOfficer.getCombatantCommand() + commissionedOfficer.getArmyComponent()
                 + commissionedOfficer.getRegiment() + commissionedOfficer.getSalary()
-                + commissionedOfficer.getMilitaryDegree());
+                + commissionedOfficer.getMilitaryDegree() + commissionedOfficer.showWeapon()
+                + commissionedOfficer.showUniform() + commissionedOfficer.getMilitaryOccupationalCode());
 
 
         System.out.println("Let's create a non commissioned officer!");
@@ -64,7 +77,8 @@ public class Main {
         System.out.println(nonCommissionedOfficer.getName() + nonCommissionedOfficer.getSurname() + nonCommissionedOfficer.getDOB()
                 + nonCommissionedOfficer.getAddress() + nonCommissionedOfficer.getNonCommissionedRank()
                 + nonCommissionedOfficer.getCombatantCommand() + nonCommissionedOfficer.getArmyComponent()
-                + nonCommissionedOfficer.getRegiment() + nonCommissionedOfficer.getSalary());
+                + nonCommissionedOfficer.getRegiment() + nonCommissionedOfficer.getSalary()
+                + nonCommissionedOfficer.showUniform());
 
         System.out.println("Let's create a marine officer!");
          MarineCorps marineCorps = new MarineCorps("Carol", "Hobbit", "31/09/2000");
@@ -80,7 +94,7 @@ public class Main {
         marineCorps.setSalary(250000);
         System.out.println(marineCorps.getName() + marineCorps.getSurname() + marineCorps.getDOB()
                 + marineCorps.getAddress() + marineCorps.getMarineCorpsRank()
-                + marineCorps.getFleet() + marineCorps.getSalary());
+                + marineCorps.getFleet() + marineCorps.getSalary() +marineCorps.showUniform());
 
         System.out.println("Let's create a navy reservist!");
         MarineReserve marineReserve = new MarineReserve("Navy", "Vet", "31/09/2000");
@@ -103,6 +117,14 @@ public class Main {
         System.out.println(marineCorps.equals(marineReserve));
         MarineReserve marineReserve1 = marineReserve;
         System.out.println(marineReserve1.equals(marineReserve));
+
+        System.out.println("Let's how many people we've created:");
+        System.out.println(Person.getNumberOfPeople());
+
+        System.out.println("Each soldier can have some Military Occupational Code - it's a static list");
+        for (String occupationalCode: Soldier.getListOfMosCodes()) {
+            System.out.println(occupationalCode);
+        }
 
         //MergeSort.mergeSortExample();
     }

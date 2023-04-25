@@ -13,10 +13,14 @@ public enum VeteranRanks {
     CAPTAIN("Captain"),
     WARRANT_OFFICER("WarrantOfficer");
 
-    private String prettyName;
+    private final String prettyName;
 
     VeteranRanks(String prettyName) {
         this.prettyName = prettyName;
+    }
+
+    public String armyRegiment() {
+        return prettyName;
     }
 
     @Override

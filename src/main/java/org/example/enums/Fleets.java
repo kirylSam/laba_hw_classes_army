@@ -9,10 +9,14 @@ public enum Fleets {
     NAVAL_SPECIAL_WARFARE("Naval Special Warfare OPS"),
     NAVAL_RESERVE_FORCES("Naval Reserve Forces");
 
-    private String prettyName;
+    private final String prettyName;
 
     Fleets(String prettyName) {
         this.prettyName = prettyName;
+    }
+
+    public String getFleet() {
+        return prettyName;
     }
 
     @Override

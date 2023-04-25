@@ -8,10 +8,14 @@ public enum NonCommissionedRanks {
     SERGEANT("Sergeant"),
     WARRANT_OFFICER("WarrantOfficer");
 
-    private String prettyName;
+    private final String prettyName;
 
     NonCommissionedRanks(String prettyName) {
         this.prettyName = prettyName;
+    }
+
+    public String getNonCommissionedRank() {
+        return prettyName;
     }
 
     @Override

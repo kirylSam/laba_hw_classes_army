@@ -9,10 +9,14 @@ public enum ArmyRegiments {
     CAVALRY_REGIMENT("Cavalry Regiment"),
     LOUISIANA_NATIVE_GUARD("Louisiana Native Guard");
 
-    private String prettyName;
+    private final String prettyName;
 
     ArmyRegiments(String prettyName) {
         this.prettyName = prettyName;
+    }
+
+    public String getArmyRegiment() {
+        return prettyName;
     }
 
     @Override

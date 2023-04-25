@@ -1,8 +1,9 @@
 package org.example;
 
 import org.example.enums.NavyRanks;
+import org.example.interfaces.IPensioner;
 
-public class MarineReserve extends Marine {
+public class MarineReserve extends Marine implements IPensioner {
     private NavyRanks navyRank;
     private int pension;
 
@@ -19,10 +20,12 @@ public class MarineReserve extends Marine {
         this.navyRank = navyRank;
     }
 
+    @Override
     public String getPension() {
         return "\n Pension: " + this.pension;
     }
 
+    @Override
     public void setPension(int pension) {
         this.pension = pension;
     }

@@ -1,15 +1,15 @@
 package org.example;
 
 import org.example.enums.NonCommissionedRanks;
+import org.example.interfaces.IArmedM4A1;
+import org.example.interfaces.IArmyUniform;
 
-public class NonCommissionedOfficer extends Soldier {
+public class NonCommissionedOfficer extends Soldier implements IArmedM4A1, IArmyUniform {
     private NonCommissionedRanks nonCommissionedRank;
-    private int salary;
 
     public NonCommissionedOfficer(String name, String surname, String DOB) {
         super(name, surname, DOB);
         this.nonCommissionedRank = NonCommissionedRanks.UNDEFINED;
-        this.salary = 0;
     }
 
     public String getNonCommissionedRank() {
@@ -20,17 +20,19 @@ public class NonCommissionedOfficer extends Soldier {
         this.nonCommissionedRank = nonCommissionedRank;
     }
 
-    public String getSalary() {
-        return "\n Salary: " + this.salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
     @Override
     public String toString() {
         return "Object of NonCommissioned Officer class: " + this.getName() + this.getSurname();
     }
 
+    @Override
+    public String showWeapon() {
+        return "\n Armed with: " + IArmedM4A1.ASSAULT_RIFLE + ", Pistol: " + IArmedM4A1.PISTOL;
+    }
+
+    @Override
+    public String showUniform() {
+        return "\n Uniform:: " + IArmyUniform.COMBAT_UNIFORM + ", " + IArmyUniform.SERVICE_UNIFORM
+                + ", " + IArmyUniform.MESS_UNIFORM + ", " + IArmyUniform.PHYSICAL_TRAINING_UNIFORM;
+    }
 }

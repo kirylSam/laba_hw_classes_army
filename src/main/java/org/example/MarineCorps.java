@@ -1,15 +1,17 @@
 package org.example;
 
 import org.example.enums.NavyRanks;
+import org.example.interfaces.IArmedM27;
+import org.example.interfaces.IArmedM4A1;
+import org.example.interfaces.IArmyUniform;
+import org.example.interfaces.IMarinesUniform;
 
-public class MarineCorps extends Marine {
+public class MarineCorps extends Marine implements IArmedM27, IMarinesUniform {
     private NavyRanks navyRank;
-    private int salary;
 
     public MarineCorps(String name, String surname, String DOB) {
         super(name, surname, DOB);
         this.navyRank = NavyRanks.UNDEFINED;
-        this.salary = 0;
     }
 
     public String getMarineCorpsRank() {
@@ -20,16 +22,17 @@ public class MarineCorps extends Marine {
         this.navyRank = navyRank;
     }
 
-    public String getSalary() {
-        return "\n Salary: " + this.salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
     @Override
     public String toString() {
         return "Object of Marine Corps class: " + this.getName() + this.getSurname();
+    }
+    @Override
+    public String showWeapon() {
+        return "\n Armed with: " + IArmedM4A1.ASSAULT_RIFLE + ", Pistol: " + IArmedM4A1.PISTOL;
+    }
+    @Override
+    public String showUniform() {
+        return "\n Uniform:: " + IMarinesUniform.COMBAT_UNIFORM + ", " + IMarinesUniform.SERVICE_UNIFORM
+                + ", " + IMarinesUniform.MESS_UNIFORM + ", " + IMarinesUniform.PHYSICAL_TRAINING_UNIFORM;
     }
 }

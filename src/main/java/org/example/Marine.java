@@ -8,10 +8,13 @@ public class Marine extends Person{
     private CombatantCommand combatantCommand;
     private Fleets fleet;
 
+    private int salary;
+
     public Marine(String name, String surname, String DOB) {
         super(name, surname, DOB);
         combatantCommand = new CombatantCommand();
         this.fleet = Fleets.UNDEFINED;
+        this.salary = 0;
     }
 
     public String getCombatantCommand() {
@@ -29,5 +32,13 @@ public class Marine extends Person{
 
     public void setFleet(Fleets fleet) {
         this.fleet = fleet;
+    }
+
+    public String getSalary() {
+        return "\n Salary: " + this.salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 }
