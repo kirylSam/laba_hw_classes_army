@@ -1,10 +1,23 @@
 package org.example;
 
-public abstract class Person {
+import org.example.exceptions.IncorrectDOBFormatException;
+import org.example.exceptions.IncorrectNameFormatException;
+import org.example.exceptions.IncorrectSurnameFormatException;
+import org.example.interfaces.IDateMatcher;
+import org.example.interfaces.INameAndSurnameMatcher;
+
+import java.util.regex.Pattern;
+
+public abstract class Person implements IDateMatcher, INameAndSurnameMatcher {
     private String name;
     private String surname;
     private String DOB;
     private Address address;
+
+    private static Pattern DATE_PATTERN = Pattern.compile("^\\d{4}-\\d{2}-\\d{2}$");
+    private static Pattern NAME_PATTERN = Pattern.compile("^[A-Z][a-z]{0,19}$");
+    private static Pattern SURNAME_PATTERN = Pattern.compile("^[A-Z][a-z]{1,29}$");
+
 
     private static int numberOfPeople;
 
@@ -20,24 +33,51 @@ public abstract class Person {
         return "\n Name: " + this.name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name) throws IncorrectNameFormatException {
+        if(!nameMatches(name) || name.length() < 1) {
+            throw new IncorrectNameFormatException("The provided name is not formatted correctly. Should be: Xx-x");
+        } else {
+            this.name = name;
+        }
     }
 
     public String getSurname() {
         return "\n Surname: " + this.surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setSurname(String surname) throws IncorrectSurnameFormatException {
+        if(!surnameMatches(surname) || surname.length() < 1) {
+            throw new IncorrectSurnameFormatException("The provided surname is not formatted correctly. Should be: Xx-x");
+        } else {
+            this.surname = surname;
+        }
     }
 
     public String getDOB() {
         return "\n DOB: " + this.DOB;
     }
 
-    public void setDOB(String DOB) {
-        this.DOB = DOB;
+    public void setDOB(String DOB) throws IncorrectDOBFormatException {
+        if(!dateMatches(DOB)) {
+            throw new IncorrectDOBFormatException("The provided DOB is not formatted correctly. Should be: XXXX-XX-XX");
+        } else {
+            this.DOB = DOB;
+        }
+    }
+
+    @Override
+    public boolean dateMatches(String DOB) {
+        return DATE_PATTERN.matcher(DOB).matches();
+    }
+
+    @Override
+    public boolean nameMatches(String name) {
+        return NAME_PATTERN.matcher(name).matches();
+    }
+
+    @Override
+    public boolean surnameMatches(String surname) {
+        return SURNAME_PATTERN.matcher(surname).matches();
     }
 
     public String getAddress() {

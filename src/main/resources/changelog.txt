@@ -1,0 +1,13 @@
+ 23.04 moved salary to the Soldier/Marine class + added IPensioner to the Veteran and MarineReservist
+ Added IArmedM4A1 and IArmedM27 to differentiate weaponry
+ Added IArmyUniform and IMarinesUniform
+ Added static method/variable - counter, to count total amount of People created (+ static getter/setter)
+ Fixed enums by adding getter and final modifier
+ Added static list of mosCoded to Soldier + static getters/setter, and a this.occupationalCode for each soldier
+
+ 26.04
+ Added logger and logger-api dependencies. Created log4j2.xmp with 2 loggers and 2 appenders (to file and console)
+ Added static Archiver class which can add information about our soldiers to the files (IStorable) and is logging to the file.
+ Added there 2 custom exceptions (IncorrectInfoToBeAddedException and IncorrectFileNameException)
+ Added the IncorrectDOBFormatException which checks if setDOB matches regex (XXXX-XX-XX)
+ In a similar manner, added the IncorrectNameFormatException and IncorrectSurnameFormatException

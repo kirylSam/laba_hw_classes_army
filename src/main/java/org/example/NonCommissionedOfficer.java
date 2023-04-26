@@ -3,8 +3,9 @@ package org.example;
 import org.example.enums.NonCommissionedRanks;
 import org.example.interfaces.IArmedM4A1;
 import org.example.interfaces.IArmyUniform;
+import org.example.interfaces.IStorable;
 
-public class NonCommissionedOfficer extends Soldier implements IArmedM4A1, IArmyUniform {
+public class NonCommissionedOfficer extends Soldier implements IArmedM4A1, IArmyUniform, IStorable {
     private NonCommissionedRanks nonCommissionedRank;
 
     public NonCommissionedOfficer(String name, String surname, String DOB) {
@@ -34,5 +35,14 @@ public class NonCommissionedOfficer extends Soldier implements IArmedM4A1, IArmy
     public String showUniform() {
         return "\n Uniform:: " + IArmyUniform.COMBAT_UNIFORM + ", " + IArmyUniform.SERVICE_UNIFORM
                 + ", " + IArmyUniform.MESS_UNIFORM + ", " + IArmyUniform.PHYSICAL_TRAINING_UNIFORM;
+    }
+
+    @Override
+    public String prepareInfo() {
+        return this.getName() + this.getSurname() + this.getDOB()
+                + this.getAddress() + this.getNonCommissionedRank()
+                + this.getCombatantCommand() + this.getArmyComponent()
+                + this.getRegiment() + this.getSalary()
+                + this.showUniform();
     }
 }

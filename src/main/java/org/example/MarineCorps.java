@@ -1,12 +1,9 @@
 package org.example;
 
 import org.example.enums.NavyRanks;
-import org.example.interfaces.IArmedM27;
-import org.example.interfaces.IArmedM4A1;
-import org.example.interfaces.IArmyUniform;
-import org.example.interfaces.IMarinesUniform;
+import org.example.interfaces.*;
 
-public class MarineCorps extends Marine implements IArmedM27, IMarinesUniform {
+public class MarineCorps extends Marine implements IArmedM27, IMarinesUniform, IStorable {
     private NavyRanks navyRank;
 
     public MarineCorps(String name, String surname, String DOB) {
@@ -26,13 +23,22 @@ public class MarineCorps extends Marine implements IArmedM27, IMarinesUniform {
     public String toString() {
         return "Object of Marine Corps class: " + this.getName() + this.getSurname();
     }
+
     @Override
     public String showWeapon() {
         return "\n Armed with: " + IArmedM4A1.ASSAULT_RIFLE + ", Pistol: " + IArmedM4A1.PISTOL;
     }
+
     @Override
     public String showUniform() {
         return "\n Uniform:: " + IMarinesUniform.COMBAT_UNIFORM + ", " + IMarinesUniform.SERVICE_UNIFORM
                 + ", " + IMarinesUniform.MESS_UNIFORM + ", " + IMarinesUniform.PHYSICAL_TRAINING_UNIFORM;
+    }
+
+    @Override
+    public String prepareInfo() {
+        return this.getName() + this.getSurname() + this.getDOB()
+                + this.getAddress() + this.getMarineCorpsRank()
+                + this.getFleet() + this.getSalary() +this.showUniform();
     }
 }

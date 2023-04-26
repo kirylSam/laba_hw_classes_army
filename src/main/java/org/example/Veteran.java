@@ -2,8 +2,9 @@ package org.example;
 
 import org.example.enums.VeteranRanks;
 import org.example.interfaces.IPensioner;
+import org.example.interfaces.IStorable;
 
-public class Veteran extends Soldier implements IPensioner {
+public class Veteran extends Soldier implements IPensioner, IStorable {
     private VeteranRanks veteranRank;
     private int pension;
 
@@ -34,5 +35,14 @@ public class Veteran extends Soldier implements IPensioner {
     @Override
     public String toString() {
         return "Object of Veteran class: " + this.getName() + this.getSurname();
+    }
+
+    @Override
+    public String prepareInfo() {
+        return this.getName() + this.getSurname() + this.getDOB()
+                + this.getAddress() + this.getVeteranRank()
+                + this.getCombatantCommand() + this.getArmyComponent()
+                + this.getRegiment() + this.getPension()
+                + this.getMilitaryOccupationalCode();
     }
 }

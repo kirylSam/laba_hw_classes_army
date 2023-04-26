@@ -2,8 +2,9 @@ package org.example;
 
 import org.example.enums.NavyRanks;
 import org.example.interfaces.IPensioner;
+import org.example.interfaces.IStorable;
 
-public class MarineReserve extends Marine implements IPensioner {
+public class MarineReserve extends Marine implements IPensioner, IStorable {
     private NavyRanks navyRank;
     private int pension;
 
@@ -33,5 +34,12 @@ public class MarineReserve extends Marine implements IPensioner {
     @Override
     public String toString() {
         return "Object of Marine Reserve class: " + this.getName() + this.getSurname();
+    }
+
+    @Override
+    public String prepareInfo() {
+        return this.getName() + this.getSurname() + this.getDOB()
+                + this.getAddress() + this.getMarineReserveRank()
+                + this.getFleet() + this.getPension();
     }
 }

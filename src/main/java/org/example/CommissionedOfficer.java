@@ -3,8 +3,9 @@ package org.example;
 import org.example.enums.CommissionedRanks;
 import org.example.interfaces.IArmedM4A1;
 import org.example.interfaces.IArmyUniform;
+import org.example.interfaces.IStorable;
 
-public class CommissionedOfficer extends Soldier implements IArmedM4A1, IArmyUniform {
+public class CommissionedOfficer extends Soldier implements IArmedM4A1, IArmyUniform, IStorable {
 
     private CommissionedRanks commissionedRank;
     private String militaryDegree;
@@ -45,5 +46,15 @@ public class CommissionedOfficer extends Soldier implements IArmedM4A1, IArmyUni
     public String showUniform() {
         return "\n Uniform:: " + IArmyUniform.COMBAT_UNIFORM + ", " + IArmyUniform.SERVICE_UNIFORM
                 + ", " + IArmyUniform.MESS_UNIFORM + ", " + IArmyUniform.PHYSICAL_TRAINING_UNIFORM;
+    }
+
+    @Override
+    public String prepareInfo() {
+        return this.getName() + this.getSurname() + this.getDOB()
+                + this.getAddress() + this.getCommissionedRank()
+                + this.getCombatantCommand() + this.getArmyComponent()
+                + this.getRegiment() + this.getSalary()
+                + this.getMilitaryDegree() + this.showWeapon()
+                + this.showUniform() + this.getMilitaryOccupationalCode();
     }
 }
