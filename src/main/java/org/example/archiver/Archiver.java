@@ -21,23 +21,18 @@ public class Archiver {
         if(!validateInfoToBeAdded(infoToBeAdded)) {
             throw new IncorrectInfoToBeAddedException("The provided string was either too short or too long");
         }
+
         try {
             File myObj = new File(filename);
             if (myObj.createNewFile()) {
                 logger.info("File created: " + myObj.getName());
-
             } else {
                 logger.info("File already exists. No need to create a new one");
             }
-            try {
-                PrintWriter myWriter = new PrintWriter(new FileWriter(myObj.getName(), true));
-                myWriter.println(infoToBeAdded);
-                myWriter.close();
-                logger.info("Successfully wrote to the file.");
-            } catch (IOException e) {
-                logger.error("[EXCEPTION] IOException");
-                e.printStackTrace();
-            }
+            PrintWriter myWriter = new PrintWriter(new FileWriter(myObj.getName(), true));
+            myWriter.println(infoToBeAdded);
+            myWriter.close();
+            logger.info("Successfully wrote to the file.");
         } catch (IOException e) {
             logger.error("[EXCEPTION] IOException");
             e.printStackTrace();

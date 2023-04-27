@@ -11,3 +11,6 @@
  Added there 2 custom exceptions (IncorrectInfoToBeAddedException and IncorrectFileNameException)
  Added the IncorrectDOBFormatException which checks if setDOB matches regex (XXXX-XX-XX)
  In a similar manner, added the IncorrectNameFormatException and IncorrectSurnameFormatException
+ part 2
+ Created 2 ArrayLists (one is ArrayList<Soldier> - called Squad, another one is ArrayList<Squad>)
+ Created custom LinkedList with add and print methods

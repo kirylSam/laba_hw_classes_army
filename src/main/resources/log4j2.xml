@@ -15,6 +15,9 @@
         <Logger name="org.example.Main" level="info" additivity="false">
             <AppenderRef ref="Console" />
         </Logger>
+        <Logger name="org.example.arrays.LinkedList" level="info" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
         <Logger name="org.example.archiver.Archiver" level="info" additivity="false">
             <AppenderRef ref="File" />
         </Logger>

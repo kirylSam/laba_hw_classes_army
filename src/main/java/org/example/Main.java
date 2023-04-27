@@ -2,6 +2,9 @@ package org.example;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.arrays.LinkedList;
+import org.example.arrays.Platoon;
+import org.example.arrays.Squad;
 import org.example.enums.*;
 import org.example.exceptions.*;
 import org.example.archiver.Archiver;
@@ -103,6 +106,32 @@ public class Main {
         } catch (IncorrectSurnameFormatException e) {
             logger.error("[EXCEPTION] Incorrect name format. Should be: Xx-x");
         }
+
+        Squad squad1 = new Squad();
+        squad1.addSoldierToSquad(newVeteran);
+        squad1.addSoldierToSquad(commissionedOfficer);
+        squad1.addSoldierToSquad(nonCommissionedOfficer);
+        logger.info("Squad1: " + squad1.getSquadArrayList());
+
+        CommissionedOfficer commissionedOfficer2 = new CommissionedOfficer("Jonn", "Vujcic", "2000-01-20");
+        CommissionedOfficer commissionedOfficer3 = new CommissionedOfficer("Jakub", "Jakubowski", "2000-01-22");
+        Squad squad2 = new Squad();
+        squad2.addSoldierToSquad(commissionedOfficer2);
+        squad2.addSoldierToSquad(commissionedOfficer3);
+
+        Platoon platoon1 = new Platoon();
+        platoon1.addSquadToPlatoon(squad1);
+        platoon1.addSquadToPlatoon(squad2);
+        logger.info("Platoon: " + platoon1.getPlatoonArrayList());
+        for (Squad squad: platoon1.getPlatoonArrayList()) {
+            logger.info("Squad" + squad.getSquadArrayList());
+        }
+
+        LinkedList<Soldier> customLinkedList= new LinkedList<>();
+        customLinkedList.add(commissionedOfficer);
+        customLinkedList.add(commissionedOfficer2);
+        customLinkedList.add(commissionedOfficer3);
+        customLinkedList.print();
 
 
         //MergeSort.mergeSortExample();
