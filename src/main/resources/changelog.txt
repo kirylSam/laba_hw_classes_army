@@ -14,3 +14,7 @@
  part 2
  Created 2 ArrayLists (one is ArrayList<Soldier> - called Squad, another one is ArrayList<Squad>)
  Created custom LinkedList with add and print methods
+
+02.05
+added maven checkstyle, maven dependency and maven assembly plugins. use mvn site to generate chesktyle report
+and mvn package to create a jar with dependencies.
