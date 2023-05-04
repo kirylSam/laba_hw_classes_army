@@ -2,6 +2,7 @@ package org.example;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.example.archiver.ReadFileAndCalculateUniqueWords;
 import org.example.arrays.LinkedList;
 import org.example.arrays.Platoon;
 import org.example.arrays.Squad;
@@ -133,6 +134,7 @@ public class Main {
         customLinkedList.add(commissionedOfficer3);
         customLinkedList.print();
 
+        ReadFileAndCalculateUniqueWords.processFile("exercise.txt", "exercise_result.txt");
 
         //MergeSort.mergeSortExample();
     }

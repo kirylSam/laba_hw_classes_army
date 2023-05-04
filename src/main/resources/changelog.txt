@@ -18,3 +18,7 @@
 02.05
 added maven checkstyle, maven dependency and maven assembly plugins. use mvn site to generate chesktyle report
 and mvn package to create a jar with dependencies.
+
+04.05
+Create a class which can read from a file, calculate the amount of unique words using a HashSet
+and then write result to another file (reading and writing happens using the FileUtils and StringUtils)
