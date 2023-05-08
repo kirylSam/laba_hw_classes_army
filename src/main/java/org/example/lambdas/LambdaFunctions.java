@@ -1,9 +1,10 @@
 package org.example.lambdas;
 
 import java.util.ArrayList;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.*;
 
 
 public class LambdaFunctions {
@@ -36,5 +37,29 @@ public class LambdaFunctions {
         printArray.accept(numbers);
     }
 
+    public void printArrayWithIndexes() {
+        //BiConsumer
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int element: numbers) {
+            map.put(numbers.indexOf(element), element);
+        }
+        BiConsumer<Integer, Integer> printArrayWithIndexes = (index, value) ->
+                System.out.println("Index: " + index + " Value: " + value);
+
+        map.forEach(printArrayWithIndexes);
+    }
+
+    public void getArrayLength() {
+        //Function
+        Function<ArrayList, Integer> func = x -> x.size();
+        Integer apply = func.apply(this.numbers);
+        System.out.println("Array length is: " + apply);
+    }
+
+    public void isArrayLongerThan(int length){
+        Predicate<ArrayList> isLongerThan = x -> x.size() > length;
+        boolean result = isLongerThan.test(this.numbers);
+        System.out.println("Array is longer than " + length + " - " + result);
+    }
 
 }

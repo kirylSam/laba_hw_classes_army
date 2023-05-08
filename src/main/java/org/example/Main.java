@@ -147,5 +147,8 @@ public class Main {
         predicate.removeEvenNumbersFromList();
         predicate.addRandomNumberToArray();
         predicate.printArray();
+        predicate.printArrayWithIndexes();
+        predicate.getArrayLength();
+        predicate.isArrayLongerThan(3);
     }
 }

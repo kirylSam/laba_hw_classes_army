@@ -24,4 +24,4 @@ Create a class which can read from a file, calculate the amount of unique words 
 and then write result to another file (reading and writing happens using the FileUtils and StringUtils)
 
 08.05
-Started working with lambdas. Added Supplier, Consumer and Predicate.
+Started working with lambdas. Added Supplier, Consumer, Predicate, BiConsumer, Function.
