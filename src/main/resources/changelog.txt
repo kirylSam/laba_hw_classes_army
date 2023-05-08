@@ -22,3 +22,6 @@ and mvn package to create a jar with dependencies.
 04.05
 Create a class which can read from a file, calculate the amount of unique words using a HashSet
 and then write result to another file (reading and writing happens using the FileUtils and StringUtils)
+
+08.05
+Started working with lambdas. Added Supplier, Consumer and Predicate.

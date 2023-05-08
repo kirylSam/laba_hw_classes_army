@@ -9,6 +9,10 @@ import org.example.arrays.Squad;
 import org.example.enums.*;
 import org.example.exceptions.*;
 import org.example.archiver.Archiver;
+import org.example.lambdas.LambdaFunctions;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -137,5 +141,11 @@ public class Main {
         ReadFileAndCalculateUniqueWords.processFile("exercise.txt", "exercise_result.txt");
 
         //MergeSort.mergeSortExample();
+
+        ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        LambdaFunctions predicate = new LambdaFunctions(numbers);
+        predicate.removeEvenNumbersFromList();
+        predicate.addRandomNumberToArray();
+        predicate.printArray();
     }
 }
