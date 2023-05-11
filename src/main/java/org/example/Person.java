@@ -111,7 +111,7 @@ public abstract class Person implements IDateMatcher, INameAndSurnameMatcher {
             return true;
         }
 
-        //No we can compare the data members
+        //Now we can compare the data members
         Person other = (Person) o;
         return DOB.equals(other.DOB) && surname.equals(other.surname) && name.equals(other.name);
     }

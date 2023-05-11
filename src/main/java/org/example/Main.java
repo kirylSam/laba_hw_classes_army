@@ -13,6 +13,10 @@ import org.example.lambdas.LambdaFunctions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -142,6 +146,7 @@ public class Main {
 
         //MergeSort.mergeSortExample();
 
+        //Lambdas 08.05
         ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
         LambdaFunctions predicate = new LambdaFunctions(numbers);
         predicate.removeEvenNumbersFromList();
@@ -150,5 +155,59 @@ public class Main {
         predicate.printArrayWithIndexes();
         predicate.getArrayLength();
         predicate.isArrayLongerThan(3);
+
+
+        //Streams 11.05
+        Squad squad3 = new Squad();
+        squad3.addSoldierToSquad(new Soldier("John", "Krasinski", "19/02/1995"));
+        squad3.addSoldierToSquad(new Soldier("Gail", "Krasinski", "19/02/1990"));
+        squad3.addSoldierToSquad(new Soldier("John", "Polak", "10/02/2000"));
+        squad3.addSoldierToSquad(new Soldier("Wenek", "Sutek", "10/02/2010"));
+        squad3.addSoldierToSquad(new Soldier("Jakub", "Jakubowski", "11/02/2000"));
+        squad3.addSoldierToSquad(new Soldier("Pawel", "Sutek", "10/02/2010"));
+
+        ArrayList<Soldier> soldierArrayList2 = squad3.getSquadArrayList();
+
+        //Filter - non-terminal
+        List<Soldier> filteredSoldiersListByName = soldierArrayList2.stream()
+                .filter(soldier -> soldier.getName().contains("John")).collect(Collectors.toList());
+        for (Soldier soldier : filteredSoldiersListByName) {
+            System.out.println("Johns's " + soldier.getName());
+        }
+
+        //filter2 - non-terminal
+        List<Soldier> pNameSoldiersList = soldierArrayList2.stream()
+                .filter(soldier -> soldier.getName().startsWith("P"))
+                .collect(Collectors.toList());
+        for (Soldier soldier : pNameSoldiersList) {
+            System.out.println("Names that start with P: " + soldier.getName());
+        }
+
+
+        //anyMatch - terminal
+        System.out.println("Are there any Krasinski's?: " +
+                soldierArrayList2.stream().anyMatch(soldier -> soldier.getSurname().contains("Krasinski")));
+
+        //count - terminal
+        System.out.println("Size: " + soldierArrayList2.stream().count());
+
+        //map - non-terminal
+        List<String> listMappedBySurname = soldierArrayList2.stream()
+                .map(Soldier::getSurname)
+                .collect(Collectors.toList());
+        listMappedBySurname.forEach(s -> System.out.println(s));
+
+        //joining - terminal
+        String fullNamesString = soldierArrayList2.stream()
+                .map(soldier -> soldier.getName() + " " + soldier.getSurname())
+                .collect(Collectors.joining(", "));
+        System.out.println("Long string: " + fullNamesString);
+
+        //toMap - terminal. FullName (name + surname) as a key
+        Map<String, Soldier> mapOfSoldiersByFullName = soldierArrayList2.stream()
+                .collect(Collectors.toMap(soldier -> soldier.getName() + " " + soldier.getSurname(), soldier -> soldier));
+        System.out.println("Map: " + mapOfSoldiersByFullName);
+
+
     }
 }

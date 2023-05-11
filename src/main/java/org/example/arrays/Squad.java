@@ -1,7 +1,13 @@
 package org.example.arrays;
 
+import org.example.Person;
 import org.example.Soldier;
+
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 public class Squad {
     private ArrayList<Soldier> squadArrayList = new ArrayList<>();

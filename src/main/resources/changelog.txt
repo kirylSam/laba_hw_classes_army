@@ -25,3 +25,6 @@ and then write result to another file (reading and writing happens using the Fil
 
 08.05
 Started working with lambdas. Added Supplier, Consumer, Predicate, BiConsumer, Function.
+
+11.05
+Added 7 collection streaming into the main file
