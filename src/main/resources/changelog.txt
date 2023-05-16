@@ -28,3 +28,6 @@ Started working with lambdas. Added Supplier, Consumer, Predicate, BiConsumer, F
 
 11.05
 Added 7 collection streaming into the main file
+
+16.05
+First connectionPool draft

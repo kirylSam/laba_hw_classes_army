@@ -6,11 +6,13 @@ import org.example.archiver.ReadFileAndCalculateUniqueWords;
 import org.example.arrays.LinkedList;
 import org.example.arrays.Platoon;
 import org.example.arrays.Squad;
+import org.example.connectionPool.SimulateCollectionPoolUsage;
 import org.example.enums.*;
 import org.example.exceptions.*;
 import org.example.archiver.Archiver;
 import org.example.lambdas.LambdaFunctions;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -183,10 +185,9 @@ public class Main {
             System.out.println("Names that start with P: " + soldier.getName());
         }
 
-
         //anyMatch - terminal
-        System.out.println("Are there any Krasinski's?: " +
-                soldierArrayList2.stream().anyMatch(soldier -> soldier.getSurname().contains("Krasinski")));
+        System.out.println("Are there any Polak's?: " +
+                soldierArrayList2.stream().anyMatch(soldier -> soldier.getSurname().contains("Polak")));
 
         //count - terminal
         System.out.println("Size: " + soldierArrayList2.stream().count());
@@ -208,6 +209,9 @@ public class Main {
                 .collect(Collectors.toMap(soldier -> soldier.getName() + " " + soldier.getSurname(), soldier -> soldier));
         System.out.println("Map: " + mapOfSoldiersByFullName);
 
-
+        //16.05
+        //First connectionPool draft
+        SimulateCollectionPoolUsage simulator = new SimulateCollectionPoolUsage();
+        simulator.startSimulation();
     }
 }
