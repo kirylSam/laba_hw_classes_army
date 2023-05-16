@@ -30,4 +30,4 @@ Started working with lambdas. Added Supplier, Consumer, Predicate, BiConsumer, F
 Added 7 collection streaming into the main file
 
 16.05
-First connectionPool draft
+First connectionPool draft. Ensured thread-safety and lazy initialization

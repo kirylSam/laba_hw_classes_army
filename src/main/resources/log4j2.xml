@@ -21,5 +21,11 @@
         <Logger name="org.example.archiver.Archiver" level="info" additivity="false">
             <AppenderRef ref="File" />
         </Logger>
+        <Logger name="org.example.connectionPool.Connection" level="info" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="org.example.connectionPool.Client" level="info" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
     </Loggers>
 </Configuration>

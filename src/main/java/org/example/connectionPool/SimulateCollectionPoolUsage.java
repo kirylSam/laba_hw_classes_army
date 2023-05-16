@@ -3,8 +3,8 @@ package org.example.connectionPool;
 public class SimulateCollectionPoolUsage {
 
     public void startSimulation() {
-       int maxConnections = 2;
-       int numberOfClients = 10;
+       int maxConnections = 1;
+       int numberOfClients = 7;
 
        ConnectionPool connectionPool = new ConnectionPool(maxConnections);
 

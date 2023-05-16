@@ -24,7 +24,7 @@ public class Main {
     public static void main(String[] args) {
         Logger logger = LogManager.getLogger("org.example.Main");
 
-        Veteran newVeteran = new Veteran("Alex", "Johns", "1990-02-19");
+     /*   Veteran newVeteran = new Veteran("Alex", "Johns", "1990-02-19");
         logger.info(newVeteran.prepareInfo());
 
         newVeteran.setAddress("Downing", "Maine", "US");
@@ -146,7 +146,6 @@ public class Main {
 
         ReadFileAndCalculateUniqueWords.processFile("exercise.txt", "exercise_result.txt");
 
-        //MergeSort.mergeSortExample();
 
         //Lambdas 08.05
         ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
@@ -207,7 +206,7 @@ public class Main {
         //toMap - terminal. FullName (name + surname) as a key
         Map<String, Soldier> mapOfSoldiersByFullName = soldierArrayList2.stream()
                 .collect(Collectors.toMap(soldier -> soldier.getName() + " " + soldier.getSurname(), soldier -> soldier));
-        System.out.println("Map: " + mapOfSoldiersByFullName);
+        System.out.println("Map: " + mapOfSoldiersByFullName);*/
 
         //16.05
         //First connectionPool draft
