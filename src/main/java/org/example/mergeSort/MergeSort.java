@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class MergeSort {
     public static void mergeSortExample() {
-        System.out.println("Hello world!");
 
         Random rand = new Random();
         int[] arrayToBeSorted = new int[10];

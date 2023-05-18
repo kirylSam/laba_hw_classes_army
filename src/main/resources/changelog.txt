@@ -31,3 +31,7 @@ Added 7 collection streaming into the main file
 
 16.05
 First connectionPool draft. Ensured thread-safety and lazy initialization
+
+18.05
+Further modified the ConnectionPool. Cleaned up Main.java, removed all the usage of sout
+

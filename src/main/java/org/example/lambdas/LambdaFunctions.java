@@ -5,13 +5,22 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 public class LambdaFunctions {
 
+    static Logger logger;
+
     ArrayList<Integer> numbers;
 
+    public LambdaFunctions() {
+        this.logger = LogManager.getLogger("org.example.lambdas.LambdaFunctions");
+    }
+
     public LambdaFunctions(ArrayList<Integer> numbers) {
+        this.logger = LogManager.getLogger("org.example.lambdas.LambdaFunctions");
         this.numbers = numbers;
         printArray();
     }
@@ -32,8 +41,8 @@ public class LambdaFunctions {
 
     public void printArray(){
         //Consumer
-        Consumer<ArrayList> printArray = x -> System.out.println(x);
-        System.out.println("ArrayList current state: ");
+        Consumer<ArrayList> printArray = x -> logger.info(x);
+        logger.info("ArrayList current state: ");
         printArray.accept(numbers);
     }
 
@@ -44,7 +53,7 @@ public class LambdaFunctions {
             map.put(numbers.indexOf(element), element);
         }
         BiConsumer<Integer, Integer> printArrayWithIndexes = (index, value) ->
-                System.out.println("Index: " + index + " Value: " + value);
+                logger.info("Index: " + index + " Value: " + value);
 
         map.forEach(printArrayWithIndexes);
     }
@@ -53,13 +62,12 @@ public class LambdaFunctions {
         //Function
         Function<ArrayList, Integer> func = x -> x.size();
         Integer apply = func.apply(this.numbers);
-        System.out.println("Array length is: " + apply);
+        logger.info("Array length is: " + apply);
     }
 
     public void isArrayLongerThan(int length){
         Predicate<ArrayList> isLongerThan = x -> x.size() > length;
         boolean result = isLongerThan.test(this.numbers);
-        System.out.println("Array is longer than " + length + " - " + result);
+        logger.info("Array is longer than " + length + " - " + result);
     }
-
 }

@@ -27,5 +27,11 @@
         <Logger name="org.example.connectionPool.Client" level="info" additivity="false">
             <AppenderRef ref="Console" />
         </Logger>
+        <Logger name="org.example.lambdas.LambdaFunctions" level="info" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="org.example.archiver.ReadFileAndCalculateUniqueWords" level="info" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
     </Loggers>
 </Configuration>

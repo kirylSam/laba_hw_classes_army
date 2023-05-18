@@ -11,20 +11,45 @@ import org.example.enums.*;
 import org.example.exceptions.*;
 import org.example.archiver.Archiver;
 import org.example.lambdas.LambdaFunctions;
+import org.example.lambdas.StreamFunctions;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Main {
+    static Logger logger;
     public static void main(String[] args) {
-        Logger logger = LogManager.getLogger("org.example.Main");
+        logger = LogManager.getLogger("org.example.Main");
 
-     /*   Veteran newVeteran = new Veteran("Alex", "Johns", "1990-02-19");
+        //Previous lessons
+        linkedList_Arrays_CustomExceptions_TryCatch_Older();
+
+        //Lambdas 08.05
+        lambdas();
+
+        //Streams 11.05
+        streamsOperations();
+
+        //ConnectionPool 17.05
+        SimulateCollectionPoolUsage simulator = new SimulateCollectionPoolUsage();
+        simulator.startSimulation();
+    }
+
+    private static void lambdas() {
+        ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        LambdaFunctions predicate = new LambdaFunctions(numbers);
+        predicate.removeEvenNumbersFromList();
+        predicate.addRandomNumberToArray();
+        predicate.printArray();
+        predicate.printArrayWithIndexes();
+        predicate.getArrayLength();
+        predicate.isArrayLongerThan(3);
+    }
+
+    public static void linkedList_Arrays_CustomExceptions_TryCatch_Older() {
+        Veteran newVeteran = new Veteran("Alex", "Johns", "1990-02-19");
         logger.info(newVeteran.prepareInfo());
 
         newVeteran.setAddress("Downing", "Maine", "US");
@@ -145,20 +170,9 @@ public class Main {
         customLinkedList.print();
 
         ReadFileAndCalculateUniqueWords.processFile("exercise.txt", "exercise_result.txt");
+    }
 
-
-        //Lambdas 08.05
-        ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
-        LambdaFunctions predicate = new LambdaFunctions(numbers);
-        predicate.removeEvenNumbersFromList();
-        predicate.addRandomNumberToArray();
-        predicate.printArray();
-        predicate.printArrayWithIndexes();
-        predicate.getArrayLength();
-        predicate.isArrayLongerThan(3);
-
-
-        //Streams 11.05
+    public static void streamsOperations() {
         Squad squad3 = new Squad();
         squad3.addSoldierToSquad(new Soldier("John", "Krasinski", "19/02/1995"));
         squad3.addSoldierToSquad(new Soldier("Gail", "Krasinski", "19/02/1990"));
@@ -166,51 +180,38 @@ public class Main {
         squad3.addSoldierToSquad(new Soldier("Wenek", "Sutek", "10/02/2010"));
         squad3.addSoldierToSquad(new Soldier("Jakub", "Jakubowski", "11/02/2000"));
         squad3.addSoldierToSquad(new Soldier("Pawel", "Sutek", "10/02/2010"));
-
         ArrayList<Soldier> soldierArrayList2 = squad3.getSquadArrayList();
 
         //Filter - non-terminal
-        List<Soldier> filteredSoldiersListByName = soldierArrayList2.stream()
-                .filter(soldier -> soldier.getName().contains("John")).collect(Collectors.toList());
+        List<Soldier> filteredSoldiersListByName = StreamFunctions.sortByContainsName(soldierArrayList2, "John");
+
         for (Soldier soldier : filteredSoldiersListByName) {
-            System.out.println("Johns's " + soldier.getName());
+            logger.info("Johns's " + soldier.getName());
         }
 
-        //filter2 - non-terminal
-        List<Soldier> pNameSoldiersList = soldierArrayList2.stream()
-                .filter(soldier -> soldier.getName().startsWith("P"))
-                .collect(Collectors.toList());
+        //Filter 2
+        List<Soldier> pNameSoldiersList = StreamFunctions.filterByStartsWith(soldierArrayList2, "P");
         for (Soldier soldier : pNameSoldiersList) {
-            System.out.println("Names that start with P: " + soldier.getName());
+            logger.info("Names that start with P " + soldier.getName());
         }
 
         //anyMatch - terminal
-        System.out.println("Are there any Polak's?: " +
-                soldierArrayList2.stream().anyMatch(soldier -> soldier.getSurname().contains("Polak")));
+        boolean anyMatch = StreamFunctions.isThereAnySoldierWithMatchingSurname(soldierArrayList2, "Polak");
+        logger.info("Are there any Polak's?: " + anyMatch);
 
         //count - terminal
-        System.out.println("Size: " + soldierArrayList2.stream().count());
+        int sizeOfList = StreamFunctions.countSoldiersInList(soldierArrayList2);
+        logger.info("Size: " + sizeOfList);
 
-        //map - non-terminal
-        List<String> listMappedBySurname = soldierArrayList2.stream()
-                .map(Soldier::getSurname)
-                .collect(Collectors.toList());
-        listMappedBySurname.forEach(s -> System.out.println(s));
+        List<String> listMappedBySurname = StreamFunctions.mapSoldiersBySurnameReturnStrings(soldierArrayList2);
+        listMappedBySurname.forEach(s -> logger.info(s));
 
         //joining - terminal
-        String fullNamesString = soldierArrayList2.stream()
-                .map(soldier -> soldier.getName() + " " + soldier.getSurname())
-                .collect(Collectors.joining(", "));
-        System.out.println("Long string: " + fullNamesString);
+        String fullNamesString = StreamFunctions.joinIntoOneString(soldierArrayList2);
+        logger.info("Long string: " + fullNamesString);
 
         //toMap - terminal. FullName (name + surname) as a key
-        Map<String, Soldier> mapOfSoldiersByFullName = soldierArrayList2.stream()
-                .collect(Collectors.toMap(soldier -> soldier.getName() + " " + soldier.getSurname(), soldier -> soldier));
-        System.out.println("Map: " + mapOfSoldiersByFullName);*/
-
-        //16.05
-        //First connectionPool draft
-        SimulateCollectionPoolUsage simulator = new SimulateCollectionPoolUsage();
-        simulator.startSimulation();
+        Map<String, Soldier> mapOfSoldiersByFullName = StreamFunctions.convertToMap(soldierArrayList2);
+        logger.info("Map: " + mapOfSoldiersByFullName);
     }
 }

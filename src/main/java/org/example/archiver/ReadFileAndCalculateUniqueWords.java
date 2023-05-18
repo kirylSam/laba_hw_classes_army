@@ -7,14 +7,16 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Logger;
 
 public class ReadFileAndCalculateUniqueWords {
+    private static final Logger logger = Logger.getLogger("org.example.archiver.ReadFileAndCalculateUniqueWords");
 
     public static void processFile(String filename, String resultFilename) {
        String fileContent = readFileAndExtractContent(filename);
        int amountOfUniqueWords = calculateUniqueWordsInAString(fileContent);
        String result = "There are " + amountOfUniqueWords + " unique words in the " + filename + " file.";
-       System.out.println(result);
+       logger.info("[ReadFileAndCalculateUniqueWords] Results: " + result);
        writeResultToAFile(result, resultFilename);
     }
 
