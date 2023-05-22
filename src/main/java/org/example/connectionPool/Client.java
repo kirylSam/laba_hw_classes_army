@@ -22,10 +22,10 @@ public class Client implements Runnable {
         Logger logger = LogManager.getLogger("org.example.connectionPool.Client");
         Connection connection = connectionPool.getConnection();
         if (connection != null) {
-            logger.info("[Client] The connection is acquired by client: " + this.clientID);
+            logger.info("[Client] Acquired the connection: " + this.clientID);
             connection.doSomethingWithDB(this);
             connectionPool.releaseConnection(connection);
-            logger.info("[Client] The connection was released by client: " + this.clientID);
+            logger.info("[Client] Released the connection: " + this.clientID);
         } else {
             logger.error("[Client] The connection is null");
         }

@@ -12,6 +12,7 @@ import org.example.exceptions.*;
 import org.example.archiver.Archiver;
 import org.example.lambdas.LambdaFunctions;
 import org.example.lambdas.StreamFunctions;
+import org.example.reflection.UsingReflection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +24,7 @@ public class Main {
     public static void main(String[] args) {
         logger = LogManager.getLogger("org.example.Main");
 
-        //Previous lessons
+      /*  //Previous lessons
         linkedList_Arrays_CustomExceptions_TryCatch_Older();
 
         //Lambdas 08.05
@@ -34,7 +35,10 @@ public class Main {
 
         //ConnectionPool 17.05
         SimulateCollectionPoolUsage simulator = new SimulateCollectionPoolUsage();
-        simulator.startSimulation();
+        simulator.startSimulation();*/
+
+        //Reflection 22.05
+        UsingReflection.use();
     }
 
     private static void lambdas() {
