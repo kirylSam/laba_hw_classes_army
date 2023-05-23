@@ -15,22 +15,7 @@ public class UsingReflection {
     static Logger logger;
 
     public static void use(){
-        //extract modifiers, return types, parameters
-        //from
-        //constructors and methods
-        //using reflection - create an object and call its method
         logger = LogManager.getLogger("org.reflection.UsingReflection");
-        /*Veteran newVeteran = new Veteran("Alex", "Johns", "1990-02-19");
-        logger.info(newVeteran.prepareInfo());
-
-        newVeteran.setAddress("Downing", "Maine", "US");
-        newVeteran.setVeteranRank(VeteranRanks.CAPTAIN);
-        newVeteran.setCombatantCommand(CombatantCommands.US_ARMY_CYBERCOMMAND, CommandHQs.WEISBADEN);
-        newVeteran.setArmyComponent(ArmyComponents.ARMY_RESERVE);
-        newVeteran.setRegiment(ArmyRegiments.RANGER_REGIMENT);
-        newVeteran.setPension(100000);
-        newVeteran.setMilitaryOccupationalCode(4);
-        logger.info(newVeteran.prepareInfo());*/
 
         //getting the class obj
         Class<?> reflectionClass = Veteran.class;

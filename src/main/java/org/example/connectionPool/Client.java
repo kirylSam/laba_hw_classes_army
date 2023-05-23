@@ -3,6 +3,8 @@ package org.example.connectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.concurrent.CompletableFuture;
+
 public class Client implements Runnable {
     //implements Runnable = can be run() in Threads
     private int clientID;
@@ -20,12 +22,15 @@ public class Client implements Runnable {
     @Override
     public void run() {
         Logger logger = LogManager.getLogger("org.example.connectionPool.Client");
+
         Connection connection = connectionPool.getConnection();
         if (connection != null) {
             logger.info("[Client] Acquired the connection: " + this.clientID);
-            connection.doSomethingWithDB(this);
-            connectionPool.releaseConnection(connection);
-            logger.info("[Client] Released the connection: " + this.clientID);
+            CompletableFuture.runAsync(() -> {
+                connection.doSomethingWithDB(this);
+                connectionPool.releaseConnection(connection);
+                logger.info("[Client] Released the connection: " + this.clientID);
+            });
         } else {
             logger.error("[Client] The connection is null");
         }

@@ -37,3 +37,7 @@ Further modified the ConnectionPool. Cleaned up Main.java, removed all the usage
 
 22.05
 Added missing homework for Reflection
+
+23.05
+Modified the SimulateCollectionPoolUsage class. Create 2 versions of it - one with the ExecutorService and another
+one with the CompletableFuture. Client class is also using CompletableFuture now.

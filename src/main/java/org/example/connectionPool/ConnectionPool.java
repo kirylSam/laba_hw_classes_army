@@ -3,11 +3,11 @@ package org.example.connectionPool;
 import java.util.concurrent.Semaphore;
 
 public class ConnectionPool {
-    private Connection[] connections;
-    private boolean[] isConnectionUsed;
+    private final Connection[] connections;
+    private final boolean[] isConnectionUsed;
 
-    private int maxConnections;
-    private Semaphore semaphore;
+    private final int maxConnections;
+    private final Semaphore semaphore;
 
     public ConnectionPool(int maxConnections) {
         this.maxConnections = maxConnections;

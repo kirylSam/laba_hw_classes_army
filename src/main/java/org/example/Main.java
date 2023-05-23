@@ -6,13 +6,13 @@ import org.example.archiver.ReadFileAndCalculateUniqueWords;
 import org.example.arrays.LinkedList;
 import org.example.arrays.Platoon;
 import org.example.arrays.Squad;
-import org.example.connectionPool.SimulateCollectionPoolUsage;
+import org.example.connectionPool.SimulateCollectionPoolUsageCompletableFuture;
+import org.example.connectionPool.SimulateCollectionPoolUsageExecutorService;
 import org.example.enums.*;
 import org.example.exceptions.*;
 import org.example.archiver.Archiver;
 import org.example.lambdas.LambdaFunctions;
 import org.example.lambdas.StreamFunctions;
-import org.example.reflection.UsingReflection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,14 +31,18 @@ public class Main {
         lambdas();
 
         //Streams 11.05
-        streamsOperations();
+        streamsOperations();*/
 
         //ConnectionPool 17.05
-        SimulateCollectionPoolUsage simulator = new SimulateCollectionPoolUsage();
+        /*SimulateCollectionPoolUsageExecutorService simulator = new SimulateCollectionPoolUsageExecutorService();
         simulator.startSimulation();*/
-
+/*
         //Reflection 22.05
-        UsingReflection.use();
+        UsingReflection.use();*/
+
+        //ConnectionPool 23.05
+        SimulateCollectionPoolUsageCompletableFuture simulator2 = new SimulateCollectionPoolUsageCompletableFuture();
+        simulator2.startSimulation();
     }
 
     private static void lambdas() {
